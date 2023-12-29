@@ -18,7 +18,7 @@ body {
 
 /* Navbar */
 
-nav {
+.navbar {
     background-color: #3c3836;
     padding: 15px 25px;
     /* position: fixed; */
@@ -28,7 +28,7 @@ nav {
     box-shadow: inset 0px -1px 0px #a89984;
 }
 
-nav a {
+.navbar a {
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -40,10 +40,6 @@ nav a {
     width: 30px;
     height: 30px;
     margin-right: 10px;
-}
-
-nav a {
-    /* vertical-align: middle; */
 }
 
 /* Main */
@@ -120,6 +116,7 @@ main {
 }
 
 @media (max-width: 900px) {
+  
     main {
         width: 100%;
         flex-direction: column;
@@ -144,3 +141,63 @@ a:hover {
   text-decoration: underline;
 }
 
+/* Pagination */
+
+
+.navpage {
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #3c3836;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding-top: 1em;
+}
+
+.pagination {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.pagination li {
+  margin: 0 2px;
+}
+
+.pagination li a {
+  display: block;
+  padding: 0.5em 1em;
+  border: 1px solid #3c3836;
+  background-color: #3c3836;
+  color: #a89984;
+  border-radius: 0.2em;
+  text-decoration: none;
+  font-weight: 300;
+  font-size: 0.9em;
+}
+
+.pagination li .current-page {
+  display: block;
+  padding: 0.5em 1em;
+  border-radius: 0.2em;
+  text-decoration: none;
+  font-weight: 300;
+  border: 1px solid #b57614;
+  background-color: #b57614;
+  color: #3c3836;
+  cursor: not-allowed;
+  font-size: 0.9em;
+}
+
+.pagination li .not-allowed {
+  display: block;
+  padding: 0.5em 1em;
+  border-radius: 0.2em;
+  text-decoration: none;
+  font-weight: 300;
+  border: 1px solid #3c3836;
+  background-color: #3c3836;
+  color: #a89984;
+  cursor: not-allowed;
+  font-size: 0.9em;
+}

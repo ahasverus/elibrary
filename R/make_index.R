@@ -1,6 +1,9 @@
-make_index <- function() {
+make_index <- function(n = 20) {
   
   data <- get_calibre_data()
+  n_pages <- ceiling(nrow(data) / n)
+  
+  data <- data[1:n, ]
   
   html <- "<!DOCTYPE html>"
   html <- c(html, "<html lang=\"fr\">")
@@ -16,7 +19,7 @@ make_index <- function() {
   html <- c(html, "")
   html <- c(html, "<body>")
   html <- c(html, "")
-  html <- c(html, "  <nav>")
+  html <- c(html, "  <nav class=\"navbar\">")
   html <- c(html, "    <a href=\"#\">")
   html <- c(html, "      <img src=\"images/logo-brand.png\" class=\"nav-brand-logo\" alt=\"Logo\" />")
   html <- c(html, "      <span>Bibliothèque</span>")
@@ -91,6 +94,26 @@ make_index <- function() {
   }
   
   html <- c(html, "  </main>")
+  
+  html <- c(html, "")
+  
+  html <- c(html, "  <nav class=\"navpage\">")
+  html <- c(html, "    <ul class=\"pagination\">")
+  html <- c(html, "      <li><span class=\"not-allowed\">&laquo;</span></li>")
+  html <- c(html, "      <li><span class=\"not-allowed\">&#8249;</span></li>")
+  html <- c(html, "      <li><span class=\"current-page\">1</span></li>")
+  html <- c(html, "      <li><a href=\"pages/page-2.html\" class=\"page\">2</a></li>")
+  html <- c(html, "      <li><a href=\"pages/page-3.html\" class=\"page\">3</a></li>")
+  html <- c(html, "      <li><span class=\"not-allowed\">...</span></li>")
+  html <- c(html, "      <li><a href=\"pages/page-2.html\" class=\"page\">&#8250;</a></li>")
+  html <- c(html, paste0("      <li><a href=\"pages/page-", 
+                         n_pages, 
+                         ".html\" class=\"page\">&raquo;</a></li>"))
+  html <- c(html, "    </ul>")
+  html <- c(html, "  </nav>")
+  
+  html <- c(html, "")
+  
   html <- c(html, "</body>")
   html <- c(html, "</html>")
 
